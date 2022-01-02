@@ -15,7 +15,7 @@ export default function () {
     let mousedownId = useRef<any>();
     let isMounted = useRef<boolean>(true);
 
-    const { width, height, loop, currentIndex, isPaused, keyboardNavigation, preventDefault, storyContainerStyles = {} } = useContext<GlobalCtx>(GlobalContext);
+    const { width, height, loop, currentIndex, isPaused, keyboardNavigation, preventDefault, storyContainerStyles = {}, onClickNextStory, onClickPrevStory } = useContext<GlobalCtx>(GlobalContext);
     const { stories } = useContext<StoriesContextInterface>(StoriesContext);
 
     useEffect(() => {
@@ -108,7 +108,13 @@ export default function () {
         if (pause) {
             toggleState('play')
         } else {
-            type === 'next' ? next() : previous()
+            if (type === "next") {
+                onClickNextStory && onClickNextStory(currentId);
+                next();
+              } else {
+                onClickPrevStory && onClickPrevStory(currentId);
+                previous();
+              }
         }
     }
 
