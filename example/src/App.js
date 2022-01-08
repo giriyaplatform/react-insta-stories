@@ -60,7 +60,6 @@ function App() {
 			</div>
 			<div className="stories">
 				<Stories
-					loop
 					keyboardNavigation
 					defaultInterval={8000}
 					stories={stories2}
