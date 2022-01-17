@@ -56,10 +56,10 @@ export const renderer: Renderer = ({ story, action, isPaused, config, messageHan
                     src={story.url}
                     controls={false}
                     onLoadedData={videoLoaded}
-                    playsInline
+                    // playsInline
                     onWaiting={onWaiting}
                     onPlaying={onPlaying}
-                    muted={muted}
+                    // muted={muted}
                     autoPlay
                     webkit-playsinline="true"
                 />
@@ -89,15 +89,26 @@ export const renderer: Renderer = ({ story, action, isPaused, config, messageHan
 
 const styles = {
     storyContent: {
-        width: "auto",
-        maxWidth: "100%",
-        maxHeight: "100%",
-        margin: "auto"
+        // width: "auto",
+        // maxWidth: "100%",
+        // maxHeight: "100%",
+        // margin: "auto"
+        height: '100%',
+        width: '177.77777778vh',
+        minWidth: '100%',
+        minHeight: '56.25vw',
+        position: 'absolute',
+        left: '50%',
+        top: '50%',
+        transform: 'translate(-50%, -50%)'
     },
     videoContainer: {
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        width: '100%',
+        height: '100%',
+        position: 'relative'
     }
 };
 
